@@ -9,7 +9,8 @@ const PARAMS = {
 };
 
 // Use environment variable for MongoDB URI or default to 'mongodb://mongodb:27017'
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://mongodb:27017';
+//const MONGO_URI = process.env.MONGO_URI || 'mongodb://mongodb:27017';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017';
 
 async function fetchAndStore() {
     try {

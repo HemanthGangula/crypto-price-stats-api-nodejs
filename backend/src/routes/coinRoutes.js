@@ -3,8 +3,8 @@ const router = express.Router();
 const { getSnapshot, getAllSnapshots } = require('../db');
 const { CryptoSnapshot } = require('../models/coin');
 
-// GET /crypto/:coin_id
-router.get('/crypto/:coin_id', async (req, res) => {
+// GET /status/:coin_id
+router.get('/status/:coin_id', async (req, res) => {
     try {
         const { coin_id } = req.params;
         const snapshot = await getSnapshot(coin_id);
@@ -26,8 +26,8 @@ router.get('/crypto/:coin_id', async (req, res) => {
     }
 });
 
-// GET /crypto/history/:coin_id
-router.get('/crypto/history/:coin_id', async (req, res) => {
+// GET /status/history/:coin_id
+router.get('/status/history/:coin_id', async (req, res) => {
     try {
         const { coin_id } = req.params;
         const snapshots = await getAllSnapshots(coin_id);

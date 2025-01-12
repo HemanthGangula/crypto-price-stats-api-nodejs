@@ -15,10 +15,8 @@ function calculateStandardDeviation(prices) {
   return Math.sqrt(meanSquaredDiff);
 }
 
-
 router.get('/deviation', async (req, res) => {
   const { coin } = req.query;
-
 
   if (!coin || !ALLOWED_COINS.has(coin)) {
     return res.status(400).json({ error: `Coin '${coin}' is not supported.` });

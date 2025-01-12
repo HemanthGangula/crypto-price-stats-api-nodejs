@@ -14,6 +14,7 @@ const cryptoSnapshotSchema = new Schema({
 
 const CryptoSnapshot = mongoose.model('CryptoSnapshot', cryptoSnapshotSchema);
 
+// ...existing code...
 
 const getSnapshot = async (coin_id) => {
     try {

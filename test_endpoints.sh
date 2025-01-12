@@ -1,12 +1,12 @@
 #!/bin/bash
 
 endpoints=(
-  "/crypto/bitcoin"
-  "/crypto/ethereum"
-  "/crypto/matic-network"
-  "/crypto/history/bitcoin"
-  "/crypto/history/ethereum"
-  "/crypto/history/matic-network"
+  "/status/bitcoin"
+  "/status/ethereum"
+  "/status/matic-network"
+  "/status/history/bitcoin"
+  "/status/history/ethereum"
+  "/status/history/matic-network"
   "/deviation?coin=bitcoin"
   "/deviation?coin=ethereum"
   "/deviation?coin=matic-network"
