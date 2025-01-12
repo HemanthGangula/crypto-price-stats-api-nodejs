@@ -14,7 +14,7 @@ endpoints=(
 
 
 for endpoint in "${endpoints[@]}"; do
-  status=$(curl -o /dev/null -s -w "%{http_code}" http://127.0.0.1:3000/api"$endpoint")
+  status=$(curl -o /dev/null -s -w "%{http_code}" http://127.0.0.1:8000/api"$endpoint")
   
   if [ "$status" -eq 200 ]; then
     echo "✔ $endpoint returned 200"

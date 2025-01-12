@@ -1,0 +1,17 @@
+node_modules/
+logs/
+*.log
+.env
+coverage/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.npm
+.eslintcache
+*.tgz
+.yarn-integrity
+.env.test
+.env.production
+tmp/
+temp/

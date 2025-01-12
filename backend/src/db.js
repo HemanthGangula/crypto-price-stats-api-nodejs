@@ -14,9 +14,6 @@ const cryptoSnapshotSchema = new Schema({
 
 const CryptoSnapshot = mongoose.model('CryptoSnapshot', cryptoSnapshotSchema);
 
-mongoose.connect(MONGO_URI)
-    .then(() => console.log(`Connected to local database: crypto_db`))
-    .catch(err => console.error(`Error connecting to the database: ${err}`));
 
 const getSnapshot = async (coin_id) => {
     try {
