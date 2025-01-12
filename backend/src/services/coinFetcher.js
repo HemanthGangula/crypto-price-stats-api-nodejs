@@ -9,8 +9,8 @@ const PARAMS = {
     ids: COINS.join(","),
 };
 
-const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017';
 
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017';
 
 const client = new MongoClient(MONGO_URI, {
   serverApi: {
