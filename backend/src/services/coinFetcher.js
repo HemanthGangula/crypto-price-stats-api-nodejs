@@ -15,7 +15,7 @@ async function fetchAndStore() {
         //console.log("Received data:", response.data); 
         const data = response.data;
 
-        const client = new MongoClient("mongodb://localhost:27017", { useNewUrlParser: true, useUnifiedTopology: true });
+        const client = new MongoClient("mongodb://localhost:27017");  // Removed deprecated options
         await client.connect();
         const db = client.db("crypto_db");
         const collection = db.collection("crypto_snapshots");

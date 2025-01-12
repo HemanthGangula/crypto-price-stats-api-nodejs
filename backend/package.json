@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "PORT=3000 node src/index.js",
+    "dev": "PORT=3000 nodemon src/index.js",
     "fetch": "node src/cron.js"
   },
   "dependencies": {
@@ -12,6 +12,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.17.1",
     "mongodb": "^4.17.2",
+    "mongoose": "^8.9.4",
     "node-cron": "^3.0.3"
   },
   "devDependencies": {
