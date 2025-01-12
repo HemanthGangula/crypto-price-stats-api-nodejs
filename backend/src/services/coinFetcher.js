@@ -8,6 +8,9 @@ const PARAMS = {
     ids: COINS.join(","),
 };
 
+// Use environment variable for MongoDB URI or default to 'mongodb://mongodb:27017'
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://mongodb:27017';
+
 async function fetchAndStore() {
     try {
         console.log("Fetching cryptocurrency data...");
@@ -15,7 +18,7 @@ async function fetchAndStore() {
         //console.log("Received data:", response.data); 
         const data = response.data;
 
-        const client = new MongoClient("mongodb://localhost:27017");  // Removed deprecated options
+        const client = new MongoClient(MONGO_URI);
         await client.connect();
         const db = client.db("crypto_db");
         const collection = db.collection("crypto_snapshots");
@@ -28,7 +31,6 @@ async function fetchAndStore() {
                 price_change_percentage_24h: coin.price_change_percentage_24h,
                 timestamp: new Date(),
             };
-
 
             await collection.insertOne(snapshot);
             console.log(`Inserted data for ${coin.id}: ${JSON.stringify(snapshot)}`);

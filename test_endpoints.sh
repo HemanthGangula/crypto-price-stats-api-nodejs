@@ -7,9 +7,9 @@ endpoints=(
   "/crypto/history/bitcoin"
   "/crypto/history/ethereum"
   "/crypto/history/matic-network"
-  #"/deviation?coin=bitcoin"
-  #"/deviation?coin=ethereum"
-  #"/deviation?coin=matic-network"
+  "/deviation?coin=bitcoin"
+  "/deviation?coin=ethereum"
+  "/deviation?coin=matic-network"
   )
 
 

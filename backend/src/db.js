@@ -24,9 +24,13 @@ const getSnapshot = async (coin_id) => {
     }
 };
 
-const getAllSnapshots = async (coin_id) => {
+const getAllSnapshots = async (coin_id, limit = 0) => { 
     try {
-        return await CryptoSnapshot.find({ coin_id }).sort({ timestamp: -1 }).exec(); // Get all snapshots
+        let query = CryptoSnapshot.find({ coin_id }).sort({ timestamp: -1 });
+        if (limit > 0) {
+            query = query.limit(limit);
+        }
+        return await query.exec(); 
     } catch (error) {
         console.error('Error getting all snapshots:', error);
         throw error;

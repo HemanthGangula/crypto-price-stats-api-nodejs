@@ -3,6 +3,7 @@ const router = express.Router();
 const { getSnapshot, getAllSnapshots } = require('../db');
 const { CryptoSnapshot } = require('../models/coin');
 
+// GET /crypto/:coin_id
 router.get('/crypto/:coin_id', async (req, res) => {
     try {
         const { coin_id } = req.params;
@@ -25,7 +26,7 @@ router.get('/crypto/:coin_id', async (req, res) => {
     }
 });
 
-
+// GET /crypto/history/:coin_id
 router.get('/crypto/history/:coin_id', async (req, res) => {
     try {
         const { coin_id } = req.params;
