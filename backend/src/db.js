@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const MONGO_URI = 'mongodb://localhost:27017/crypto_db'; 
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/crypto_db';
 const COLLECTION_NAME = 'crypto_snapshots';
 
 const cryptoSnapshotSchema = new Schema({
@@ -13,8 +13,6 @@ const cryptoSnapshotSchema = new Schema({
 }, { collection: COLLECTION_NAME });
 
 const CryptoSnapshot = mongoose.model('CryptoSnapshot', cryptoSnapshotSchema);
-
-// ...existing code...
 
 const getSnapshot = async (coin_id) => {
     try {

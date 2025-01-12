@@ -1,5 +1,6 @@
 const axios = require('axios');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ServerApiVersion } = require('mongodb');
+require('dotenv').config(); 
 
 const COINGECKO_URL = "https://api.coingecko.com/api/v3/coins/markets";
 const COINS = ["bitcoin", "ethereum", "matic-network"];
@@ -8,18 +9,23 @@ const PARAMS = {
     ids: COINS.join(","),
 };
 
-// Use environment variable for MongoDB URI or default to 'mongodb://mongodb:27017'
-//const MONGO_URI = process.env.MONGO_URI || 'mongodb://mongodb:27017';
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017';
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+
+
+const client = new MongoClient(MONGO_URI, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
 async function fetchAndStore() {
     try {
         console.log("Fetching cryptocurrency data...");
         const response = await axios.get(COINGECKO_URL, { params: PARAMS });
-        //console.log("Received data:", response.data); 
         const data = response.data;
 
-        const client = new MongoClient(MONGO_URI);
         await client.connect();
         const db = client.db("crypto_db");
         const collection = db.collection("crypto_snapshots");
