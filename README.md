@@ -6,6 +6,8 @@ This project fetches cryptocurrency data, stores it in a MongoDB database, and e
 
 ## Setup
 
+## Note: Apologies, I’m deactivating my deployment due to AWS billing constraints.
+
 1. **Database Deployment**:
     - The database is deployed on MongoDB Atlas in a free tier cluster.
 
